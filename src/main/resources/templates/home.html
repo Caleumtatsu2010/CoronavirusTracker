@@ -3,33 +3,42 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <title>Coronavirus Tracker</title>
+    <title>COVID-19 CASES</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+        .table{
+            text-align: center;
+        }
+        .jumbotron{
+            font-size: 40px;
+        }
+    </style>
+
 </head>
 
 <body>
 <div class="container">
-    <h1>Coronavirus Tracker Application</h1>
-    <p>This application lists the current number of cases reported across the globe</p>
+    <h1>COVID-19 CASES </h1>
+    <p>The current number of cases reported across the globe</p>
 
     <div class="jumbotron">
         <h1 class="display-4" th:text="${totalReportedCases}"></h1>
-        <p class="lead">Total cases reported as of today</p>
+        <p class="lead">Total cases reported</p>
         <hr class="my-4">
         <p>
-            <span>New cases reported since previous day:</span>
+            <span>New cases reported today:</span>
             <span th:text="${totalNewCases}"></span>
         </p>
 
     </div>
 
     <table class="table">
-        <tr>
+        <tr style="background-color: #00F279">
             <th>State</th>
             <th>Country</th>
-            <th>Total cases reported</th>
-            <th>Changes since last day</th>
+            <th>Total cases</th>
+            <th>New cases</th>
         </tr>
         <tr th:each="locationStat : ${locationStats}">
             <td th:text="${locationStat.state}"></td>
